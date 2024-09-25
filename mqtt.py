@@ -338,15 +338,15 @@ while True:
     if(charge_state or car_power_state):
 #################################for simulation actual CAN code is needed#######################
         battery_charge_simulation()
-        # if(counter <= 20):
-        speed_simulation(0,13)
-        # elif(counter > 20 and counter <= 40):
-            # speed_simulation(0,8)
-        # elif(counter > 40 and counter <= 60):
-            # speed_simulation(0,13)
+        if(counter <= 20):
+            speed_simulation(0,8)
+        elif(counter > 20 and counter <= 70):
+            speed_simulation(4,10)
+        elif(counter > 70 and counter <= 200):
+            speed_simulation(4,13)
         
-        # else:
-            # counter=0
+        else:
+            counter=0
         
         if(car_power_state):
             counter = counter+1
@@ -379,4 +379,4 @@ while True:
         battery_charge_simulation()
         on_request_publish()
 
-    time.sleep(LOOP_DELAY)
+    time.sleep(0.2)
